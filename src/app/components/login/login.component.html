@@ -1,0 +1,23 @@
+<div class="card">
+    <img class="card-img-top" src="assets/data/app-logo-head.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Login <span><a href="" class="card-link"> Register here</a></span></h5>
+      <form role="form" ngNativeValidate (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" formControlName="username" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <div class="invalid-tooltip">
+            Please provide a valid email
+          </div>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="inputPassword1" placeholder="Password">
+        </div>
+        <div class="submit">
+            <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
