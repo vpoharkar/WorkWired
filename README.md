@@ -1,6 +1,15 @@
-# WorkTracker
+# WorkWired
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+
+### See who works on what
+Dashboard shows you on which tasks you spend the most time. It can also show you what your team is working on and where they spend time.
+
+### Manage projects and monitor progress
+Create projects and tasks, and assign people to them. Estimate how long each task should take and check progress.
+
+### How to track daily activity
+----In Progress-----
 
 ## Development server
 
