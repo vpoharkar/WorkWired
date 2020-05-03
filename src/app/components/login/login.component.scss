@@ -3,18 +3,110 @@
     left: 35%;
     width: 25rem;
     .card-img-top {
-        width: 20rem;
-        height: 20rem;
-        margin: 0 2.5rem 0 2.5rem;
+        width: 15rem;
+        height: 12rem;
+        margin: 0 5rem 0 5rem;
     }
     .card-body {
         background-color: aquamarine;
+        .form-group{
+            .form-check {
+                display: grid;
+                input {
+                    margin: 0.5rem;
+                }
+            }
+            .invalid-role {
+                color: #dc3545;
+            }
+        }
     }
-    .card-footer {
-        background-color: mediumaquamarine;
+    .footer {
+        text-align: center;
+        .action-links {
+            cursor: pointer;
+            color: #007bff;
+        }
     }
 }
 .card:not(.highlight-card):hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
+}
+
+.container {
+    .login-container {
+        .card {
+            position: absolute;
+            left: 35%;
+            width: 25rem;
+            .card-img-top {
+                width: 15rem;
+                height: 12rem;
+                margin: 0 5rem 0 5rem;
+            }
+            .card-body {
+                background-color: aquamarine;
+                .form-group{
+                    .form-check {
+                        display: grid;
+                        input {
+                            margin: 0.5rem;
+                        }
+                    }
+                    .invalid-role {
+                        color: #dc3545;
+                    }
+                }
+            }
+            .footer {
+                text-align: center;
+                .action-links {
+                    cursor: pointer;
+                    color: #007bff;
+                }
+            }
+        }
+        .card:not(.highlight-card):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+        }
+    }
+    .register-container {
+        .card {
+            position: absolute;
+            left: 25%;
+            width: 45rem;
+            .card-img-top {
+                width: 15rem;
+                height: 12rem;
+                margin: 0 5rem 0 5rem;
+            }
+            .card-body {
+                background-color: aquamarine;
+                .form-group{
+                    .form-check {
+                        display: block;
+                        input {
+                            margin: 1rem;
+                        }
+                    }
+                    .invalid-role {
+                        color: #dc3545;
+                    }
+                }
+            }
+            .footer {
+                text-align: center;
+                .action-links {
+                    cursor: pointer;
+                    color: #007bff;
+                }
+            }
+        }
+        .card:not(.highlight-card):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+        }
+    }
+}

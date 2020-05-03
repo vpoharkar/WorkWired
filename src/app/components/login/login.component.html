@@ -1,23 +1,86 @@
-<div class="card">
-    <img class="card-img-top" src="assets/data/app-logo-head.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Login <span><a href="" class="card-link"> Register here</a></span></h5>
-      <form role="form" ngNativeValidate (ngSubmit)="login()" [formGroup]="loginForm">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" formControlName="username" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <div class="invalid-tooltip">
-            Please provide a valid email
+<div class="container">
+  <div class=login-container>
+    <div *ngIf="!showRegisterform" class="card">
+      <img class="card-img-top" src="assets/data/app-logo.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Login</h5>
+        <form role="form" ngNativeValidate (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="inputEmail1">Email address</label>
+            <input type="email" formControlName="username" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" formControlName="password" id="inputPassword1" placeholder="Password">
-        </div>
-        <div class="submit">
-            <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
-        </div>
-      </form>
+          <div class="form-group">
+            <label for="inputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="inputPassword1" placeholder="Password">
+          </div>
+          <div class="submit">
+              <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+          <div><small>Don't have an account? </small> <a class="action-links" (click)="showRegisterform = true;"> Register here</a></div>
+          <div><small>Forgot password? </small><a class="action-links"> Click here</a></div>
+      </div>
     </div>
   </div>
+  <div class="register-container">
+    <div *ngIf="showRegisterform" class="card">
+      <div class="card-body">
+        <h5 class="card-title"><b>Register new user</b></h5>
+        <form class="was-validated" ngValidate role="form" (ngSubmit)="register()" [formGroup]="registerForm">
+          <div class="form-group">
+            <label for="projectName"><b>Select project</b></label>
+            <select class="form-control" id="projectName" (change)="onProjectSelect()" formControlName="projectName" id="projectName" placeholder="Select project name" required>
+              <option selected value="">Select Project from here</option>
+              <option *ngFor="let project of projectList" >{{project.value}}</option>
+            </select>
+            <div class="invalid-feedback">Please choose a project</div>
+            <div class="valid-feedback">The project ID is populated based on your selected project</div>
+          </div>
+          <div class="form-group">
+              <label for="projectId"><b>Project ID</b></label>
+              <input type="text" formControlName="projectId" class="form-control" id="projectId" placeholder="Project ID" required>
+              <small class="form-text text muted">ID field will be populated based on project</small>
+          </div>
+          <div class="form-group">
+              <label for="employeeName"><b>Employee Name</b></label>
+              <input type="text" formControlName="employeeName" class="form-control" id="employeeName" placeholder="Enter your name" required>
+              <div class="invalid-feedback">Please enter your name</div>
+          </div>
+          <div class="form-group">
+            <label for="employeeId"><b>Employee ID</b></label>
+            <input type="text" formControlName="employeeId" class="form-control" id="employeeId" placeholder="Enter your registred company ID" required>
+            <div class="invalid-feedback">Please enter a valid employee ID</div>
+          </div>
+          <div class="form-group">
+            <label for="optradio"><b>Select your role</b></label>
+            <div class="form-check">
+              <label *ngFor="let opt of EMPLOYEE_ROLES"><input class="form-check-label" (change)="onRoleSelect(opt)" type="radio" name="optradio" required>{{opt}}</label>
+            </div>
+            <small *ngIf="registerForm.controls['role'].value === ''" class="invalid-role">Please select your role in the project</small>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <input type="email" formControlName="registerEmail" class="form-control" id="registerEmail" aria-describedby="registerEmailHelp" placeholder="Enter valid email address" required>
+            <div class="invalid-feedback">Please enter a valid email address</div>
+            <div class="valid-feedback">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">Password</label>
+            <input type="password" class="form-control" formControlName="newPassword" id="newPassword" (keyup)="validate()"placeholder="Enter new password" required>
+            <div class="invalid-feedback">Please enter unique password</div>
+            <div class="valid-feedback">The password should be at least 6 characters long</div>
+          </div>
+          <div class="submit">
+              <button type="submit" class="btn btn-info btn-lg btn-block">Register user</button>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+          <div><small>Already have an account? </small> <a (click)="showRegisterform = false;" class="action-links"> Sign In</a></div>
+      </div>
+    </div>
+  </div>
+</div>
