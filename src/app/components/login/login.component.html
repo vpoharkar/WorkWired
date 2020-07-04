@@ -1,4 +1,5 @@
-<div class="container">
+<h1>Login form coming soon..........</h1>
+<!-- <div class="container">
   <div class=login-container>
     <div *ngIf="!showRegisterform" class="card">
       <img class="card-img-top" src="assets/data/app-logo.png" alt="Card image cap">
@@ -51,8 +52,10 @@
           </div>
           <div class="form-group">
             <label for="employeeId"><b>Employee ID</b></label>
-            <input type="text" formControlName="employeeId" class="form-control" id="employeeId" placeholder="Enter your registred company ID" required>
-            <div class="invalid-feedback">Please enter a valid employee ID</div>
+            <input type="text" formControlName="employeeId" class="form-control" id="employeeId" placeholder="Enter your registred company ID" (keyup.enter)="validate()" required>
+            <div class="invalid-feedback">
+              Name is required.
+            </div>
           </div>
           <div class="form-group">
             <label for="optradio"><b>Select your role</b></label>
@@ -69,9 +72,8 @@
           </div>
           <div class="form-group">
             <label for="newPassword">Password</label>
-            <input type="password" class="form-control" formControlName="newPassword" id="newPassword" (keyup)="validate()"placeholder="Enter new password" required>
-            <div class="invalid-feedback">Please enter unique password</div>
-            <div class="valid-feedback">The password should be at least 6 characters long</div>
+            <input type="password" class="form-control" formControlName="newPassword" id="newPassword" placeholder="Enter new password" required>
+            
           </div>
           <div class="submit">
               <button type="submit" class="btn btn-info btn-lg btn-block">Register user</button>
@@ -83,4 +85,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,0 +1,37 @@
+.ww-row {
+    margin-right: 0;
+    margin-left: 0;
+    .sidebar-expanded {
+        height: 92vh;
+        box-shadow: 0px 0px 20px grey;
+        background: #000066;
+        .list-group {
+            .list-group-item {
+                border-top-width: 0;
+                background-color: #000066;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+    .sidebar-collapsed {
+        height: 92vh;
+        background: #000066;
+        box-shadow: 0px 0px 20px grey;
+        .list-group {
+            .list-group-item {
+                border-top-width: 0;
+                background-color: #000066;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .ww-row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
