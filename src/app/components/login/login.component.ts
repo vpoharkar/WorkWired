@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder
     ) {
         this.loginForm = new FormGroup({
-          username: new FormControl('', [Validators.required, Validators.email]),
+          username: new FormControl('', [Validators.required]),
           password: new FormControl('', [Validators.required]),
         });
         this.registerForm = new FormGroup({
@@ -63,9 +63,14 @@ export class LoginComponent implements OnInit {
         })
     }
 
+    // in use for new mockup
     login() {
         console.log('Hi user: ', this.loginForm.controls.username.value);
         this.route.navigate(['task-form']);
+    }
+    registerUser() {
+      console.log('Hi user: ', this.loginForm.controls.username.value);
+      this.route.navigate(['register']);
     }
 
     onProjectSelect() {

@@ -1,0 +1,82 @@
+@import '../../../Reference.scss';
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to top, #828287, #99999e, #b0b0b5, #c8c8cd, #e1e1e6);
+    background-size: cover;
+    .inner {
+        min-width: 850px;
+        margin: auto;
+        display: flex;
+        form {
+            width: 50%;
+            padding-top: 33px;
+            padding-left: 49px;
+            padding-right: 50px;
+            max-height: 550px;
+            background-color: white;
+            h2 {
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .input-group {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                width: 100%;
+                position: relative;
+                margin-bottom: 33px;
+                border-bottom: 1px solid #e6e6e6;
+                input {
+                    line-height: inherit;
+                    outline: none;
+                    margin: 0;
+                    border: none;
+                    -webkit-box-shadow: none;
+                    -moz-box-shadow: none;
+                    box-shadow: none;
+                    width: 100%;
+                    font-family: inherit;
+                }
+                .input--style-3 {
+                    padding: 5px 0;
+                    font-size: 18px;
+                    background: transparent;
+                }
+            }
+            .p-t-10 {
+                padding-top: 10px;
+                .btn-blue {
+                    background: $primary-blue-hue;
+                    display: inline-block;
+                    line-height: 40px;
+                    padding: 0 33px;
+                    border-radius: 20px;
+                }
+                .btn-block {
+                    width: 40%;
+                }
+                .policy {
+                    display: inline-block;
+                    float: right;
+                    margin-top: 15px;
+                    label {
+                        input {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .image-holder {
+            width: 50%;
+            max-height: 550px;
+            
+            height: 550px;
+        }
+    }
+}
