@@ -3,28 +3,40 @@
         
 <form [formGroup]="registerForm" ngNativeValidate (ngSubmit)="register()">
     <h2 class="title">Register User</h2>
-    <div class="input-group">
+    <div class="input-group" [ngClass]="displayFieldCss('fullName')">
         <input class="input--style-3" type="text" placeholder="Full Name" name="name" formControlName="fullName">
     </div>
-    <div class="input-group">
+    <app-field-error-display [displayError]="isFieldValid('fullName')" errorMsg="Required*">
+    </app-field-error-display>
+    <div class="input-group" [ngClass]="displayFieldCss('email')">
         <input class="input--style-3" type="email" placeholder="Email" name="email" formControlName="email">
     </div>
-    <div class="input-group">
+    <app-field-error-display [displayError]="isFieldValid('email')" errorMsg="Required*">
+    </app-field-error-display>
+    <div class="input-group" [ngClass]="displayFieldCss('username')">
         <input class="input--style-3" type="text" placeholder="Username" name="username" formControlName="username">
     </div>
-    <div class="input-group">
+    <app-field-error-display [displayError]="isFieldValid('username')" errorMsg="Required*">
+    </app-field-error-display>
+    <div class="input-group" [ngClass]="displayFieldCss('password')">
         <input class="input--style-3" type="password" placeholder="Password" name="Password" formControlName="password">
     </div>
-    <div class="input-group">
+    <app-field-error-display [displayError]="isFieldValid('password')" errorMsg="Required*">
+    </app-field-error-display>
+    <div class="input-group" [ngClass]="displayFieldCss('confirmPassword')">
         <input class="input--style-3" type="password" placeholder="Repeat Password" name="repeat-password" formControlName="confirmPassword">
     </div>
+    <app-field-error-display [displayError]="isFieldValid('confirmPassword')" errorMsg="Required*">
+    </app-field-error-display>
     <div class="p-t-10">
-        <button class="btn btn-lg btn-primary btn-block btn-blue" type="submit" [disabled]="!registerForm.valid">Register</button>
+        <button class="btn btn-lg btn-primary btn-block btn-blue" type="submit">Register</button>
         <div class="checkbox policy mb-3">
             <label>
                 <input type="checkbox" value="policy" formControlName="policyCheck">
-                <small class="text-muted">I agree to <a href="">Terms of user</a></small>
             </label>
+            <small class="text-muted">I agree to <p class="terms" (click)="goToPolicy()">Terms of user</p></small>
+                <app-field-error-display [displayError]="isFieldValid('policyCheck')" errorMsg="Please confirm policy*">
+                </app-field-error-display>
         </div>
     </div>
     </form>

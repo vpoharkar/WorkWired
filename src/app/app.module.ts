@@ -11,6 +11,8 @@ import { GettingStartedComponent } from './components/getting-started/getting-st
 import { RegisterComponent } from './components/register/register.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LeftGlobalNavigationComponent } from './components/left-global-navigation/left-global-navigation.component';
+import { FieldErrorDisplayComponent } from './components/field-error-display/field-error-display.component';
+import { TermsOfUserComponent } from './components/terms-of-user/terms-of-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LeftGlobalNavigationComponent } from './components/left-global-navigati
     GettingStartedComponent,
     RegisterComponent,
     NavBarComponent,
-    LeftGlobalNavigationComponent
+    LeftGlobalNavigationComponent,
+    FieldErrorDisplayComponent,
+    TermsOfUserComponent
   ],
   imports: [
     BrowserModule,

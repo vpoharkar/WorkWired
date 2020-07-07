@@ -29,7 +29,8 @@
                 align-items: stretch;
                 width: 100%;
                 position: relative;
-                margin-bottom: 33px;
+                margin-bottom: 5px;
+                margin-top: 30px;
                 border-bottom: 1px solid #e6e6e6;
                 input {
                     line-height: inherit;
@@ -48,6 +49,12 @@
                     background: transparent;
                 }
             }
+            .has-error {
+                margin-top: 10px;
+            }
+            .has-feedback {
+                margin-top: 10px;
+            }
             .p-t-10 {
                 padding-top: 10px;
                 .btn-blue {
@@ -58,15 +65,26 @@
                     border-radius: 20px;
                 }
                 .btn-block {
-                    width: 40%;
+                    width: 41%;
                 }
                 .policy {
                     display: inline-block;
                     float: right;
                     margin-top: 15px;
                     label {
+                        display: inline-block;
+                        margin-bottom: 0;
                         input {
                             margin-right: 5px;
+                        }
+                    }
+                    .text-muted {
+                        display: inline-block;
+                        .terms {
+                            cursor: pointer;
+                            color: $link-bue-hue;
+                            display: inline-block;
+                            margin-bottom: 0;
                         }
                     }
                 }
@@ -75,7 +93,6 @@
         .image-holder {
             width: 50%;
             max-height: 550px;
-            
             height: 550px;
         }
     }

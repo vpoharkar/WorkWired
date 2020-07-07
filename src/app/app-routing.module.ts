@@ -6,6 +6,7 @@ import { LoginComponent }  from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GettingStartedComponent } from './components/getting-started/getting-started.component';
 import { TaskProviderComponent } from './components/task-provider/task-provider.component';
+import { TermsOfUserComponent } from './components/terms-of-user/terms-of-user.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'task-form',
     component: TaskProviderComponent
+  },
+  {
+    path: 'terms-and-conditions',
+    component: TermsOfUserComponent
   },
   {
     path: '**',

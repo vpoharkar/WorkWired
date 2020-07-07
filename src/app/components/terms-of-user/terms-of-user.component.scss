@@ -1,0 +1,13 @@
+@import '../../../Reference.scss';
+
+.bg-dark {
+    background: $primary-blue-hue !important;
+    .navbar-brand {
+        p {
+            font-weight: 800;
+            margin-left: 10px;
+            margin-bottom: 0;
+            font-size: 25px;
+        }
+    }
+}

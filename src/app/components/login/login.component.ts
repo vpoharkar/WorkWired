@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+declare var $: any;
 
 @Component({
   selector: 'app-login',
@@ -18,9 +19,9 @@ export class LoginComponent implements OnInit {
   //TODO :=> Automate both register and login forms with validations
 
   loginForm: FormGroup;
-  registerForm: FormGroup;
-  showRegisterform: Boolean = false;
-  formSubmitted: Boolean= false;
+  forgotPasswordForm: FormGroup;
+  showForgotPassword: Boolean = false;
+  showSignIn: Boolean = true;
 
   // temporary data
   // later this data will be populated based on service APIs
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
   };
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  // get f() { return this.registerForm.controls; }
 
     constructor(
         private route: Router,
@@ -52,66 +53,54 @@ export class LoginComponent implements OnInit {
           username: new FormControl('', [Validators.required]),
           password: new FormControl('', [Validators.required]),
         });
-        this.registerForm = new FormGroup({
-          projectName: new FormControl('', Validators.required),
-          projectId: new FormControl(''), // validators to be added later
-          employeeName: new FormControl('', Validators.required),
-          employeeId: new FormControl('', Validators.required),
-          role: new FormControl('', Validators.required),
-          registerEmail: new FormControl('', Validators.email),
-          newPassword: new FormControl('', Validators.required)
-        })
+        this.forgotPasswordForm = new FormGroup({
+          referenceEmail: new FormControl('', [Validators.required]),
+        });
     }
 
     // in use for new mockup
-    login() {
-        console.log('Hi user: ', this.loginForm.controls.username.value);
-        this.route.navigate(['task-form']);
-    }
     registerUser() {
       console.log('Hi user: ', this.loginForm.controls.username.value);
       this.route.navigate(['register']);
     }
-
-    onProjectSelect() {
-      if(this.registerForm.controls['projectName'].value !== '') {
-        let matchedRecord = this.projectList.find(result => result.value === this.registerForm.controls['projectName'].value);
-        this.registerForm.controls['projectId'].patchValue(matchedRecord.id);
+    isFieldValid(field: string) {
+      return !this.loginForm.get(field).valid && this.loginForm.get(field).touched;
+    }
+  
+    displayFieldCss(field: string) {
+      return {
+        'has-error': this.isFieldValid(field),
+        'has-feedback': this.isFieldValid(field)
+      };
+    }
+  
+    login() {
+      console.log(this.loginForm);
+      if (this.loginForm.valid) {
+        console.log('form submitted');
+        this.route.navigate(['task-form']);
       } else {
-        this.registerForm.controls['projectId'].patchValue('');
+        this.validateAllFormFields(this.loginForm);
       }
     }
-
-    onRoleSelect(role: string) {
-      if (role) {
-        this.registerForm.controls['role'].patchValue(role);
-      } else {
-        this.registerForm.controls['role'].patchValue('')
-      }
-    }
-
-    validate() {
-      console.log("in validate");
-      if(this.f.employeeId.errors) {
-        if(this.f.employeeId.errors.minlength) {
-          this.errors.type = 'email_length',
-          this.errors.value = this.ERROR_MODEL.invalid_employee_ID_length
-        } else if(this.f.employeeId.errors.required) {
-          this.errors.type = 'email_required',
-          this.errors.value = this.ERROR_MODEL.invalid_employee_ID
+  
+    validateAllFormFields(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).forEach(field => {
+        console.log(field);
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+          control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {
+          this.validateAllFormFields(control);
         }
-      }
+      });
     }
 
-    register() {
+    restPassword() {
+      $('.toast').toast('show');
+    }
 
-      this.formSubmitted = true;
-
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
-
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+    loginWithThirdPartySites(selectedOption: String) {
+      alert('This version does not contain redirected ' + selectedOption + ' website')
     }
 }

@@ -1,97 +1,5 @@
-<!-- old markip starts here => according to old mock design commented -->
-<!-- <div class="container">
-  <div class=login-container>
-    <div *ngIf="!showRegisterform" class="card">
-      <img class="card-img-top" src="assets/data/app-logo.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Login</h5>
-        <form role="form" ngNativeValidate (ngSubmit)="login()" [formGroup]="loginForm">
-          <div class="form-group">
-            <label for="inputEmail1">Email address</label>
-            <input type="email" formControlName="username" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword1">Password</label>
-            <input type="password" class="form-control" formControlName="password" id="inputPassword1" placeholder="Password">
-          </div>
-          <div class="submit">
-              <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
-          </div>
-        </form>
-      </div>
-      <div class="footer">
-          <div><small>Don't have an account? </small> <a class="action-links" (click)="showRegisterform = true;"> Register here</a></div>
-          <div><small>Forgot password? </small><a class="action-links"> Click here</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="register-container">
-    <div *ngIf="showRegisterform" class="card">
-      <div class="card-body">
-        <h5 class="card-title"><b>Register new user</b></h5>
-        <form class="was-validated" ngValidate role="form" (ngSubmit)="register()" [formGroup]="registerForm">
-          <div class="form-group">
-            <label for="projectName"><b>Select project</b></label>
-            <select class="form-control" id="projectName" (change)="onProjectSelect()" formControlName="projectName" id="projectName" placeholder="Select project name" required>
-              <option selected value="">Select Project from here</option>
-              <option *ngFor="let project of projectList" >{{project.value}}</option>
-            </select>
-            <div class="invalid-feedback">Please choose a project</div>
-            <div class="valid-feedback">The project ID is populated based on your selected project</div>
-          </div>
-          <div class="form-group">
-              <label for="projectId"><b>Project ID</b></label>
-              <input type="text" formControlName="projectId" class="form-control" id="projectId" placeholder="Project ID" required>
-              <small class="form-text text muted">ID field will be populated based on project</small>
-          </div>
-          <div class="form-group">
-              <label for="employeeName"><b>Employee Name</b></label>
-              <input type="text" formControlName="employeeName" class="form-control" id="employeeName" placeholder="Enter your name" required>
-              <div class="invalid-feedback">Please enter your name</div>
-          </div>
-          <div class="form-group">
-            <label for="employeeId"><b>Employee ID</b></label>
-            <input type="text" formControlName="employeeId" class="form-control" id="employeeId" placeholder="Enter your registred company ID" (keyup.enter)="validate()" required>
-            <div class="invalid-feedback">
-              Name is required.
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="optradio"><b>Select your role</b></label>
-            <div class="form-check">
-              <label *ngFor="let opt of EMPLOYEE_ROLES"><input class="form-check-label" (change)="onRoleSelect(opt)" type="radio" name="optradio" required>{{opt}}</label>
-            </div>
-            <small *ngIf="registerForm.controls['role'].value === ''" class="invalid-role">Please select your role in the project</small>
-          </div>
-          <div class="form-group">
-            <label for="registerEmail">Email address</label>
-            <input type="email" formControlName="registerEmail" class="form-control" id="registerEmail" aria-describedby="registerEmailHelp" placeholder="Enter valid email address" required>
-            <div class="invalid-feedback">Please enter a valid email address</div>
-            <div class="valid-feedback">We'll never share your email with anyone else.</div>
-          </div>
-          <div class="form-group">
-            <label for="newPassword">Password</label>
-            <input type="password" class="form-control" formControlName="newPassword" id="newPassword" placeholder="Enter new password" required>
-            
-          </div>
-          <div class="submit">
-              <button type="submit" class="btn btn-info btn-lg btn-block">Register user</button>
-          </div>
-        </form>
-      </div>
-      <div class="footer">
-          <div><small>Already have an account? </small> <a (click)="showRegisterform = false;" class="action-links"> Sign In</a></div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
 <!-- new markip starts here => according to new mock design -->
-<div class="row login" style="background-image: url('assets/data/bg.png');">
+<div *ngIf="showSignIn" class="row login" style="background-image: url('assets/data/bg.png');">
   <div class="container login-container">
     <div class="row">
       <div class="w-50 mx-auto">
@@ -99,10 +7,10 @@
           <div class="card mb-4 shadow-sm">
             <svg _ngcontent-tec-c48="" class="svg-inline--fa fa-user-circle fa-w-16 fa-5x fa-fw mr-3 user-icon" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path></svg>
             <div class="card-body">
-              <h4 class="my-0 font-weight-normal">Please Sign In</h4>
+              <h4 class="my-0 font-weight-normal signInText">Please Sign In</h4>
               <form class="form-signin" [formGroup]="loginForm" ngNativeValidate (ngSubmit)="login()">
-                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                <div class="input-group mb-2 mr-sm-2">
+                <label class="sr-only" for="inlineFormInputGroupUsername">username</label>
+                <div class="input-group mb-2 mr-sm-2" [ngClass]="displayFieldCss('username')">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <svg _ngcontent-rtq-c48="" class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z" style="
@@ -110,10 +18,12 @@
                     "></path></svg>
                     </div>
                   </div>
-                  <input type="email" formControlName="username" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Enter email">
+                  <input type="email" formControlName="username" class="form-control" id="inlineFormInputGroupUsername" placeholder="Enter email">
                 </div>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <div class="input-group mb-2 mr-sm-2">
+                <app-field-error-display class="error" [displayError]="isFieldValid('username')" errorMsg="Required*">
+                </app-field-error-display>
+                <label for="inlineFormInputGroupPassword" class="sr-only">Password</label>
+                <div class="input-group mb-2 mr-sm-2" [ngClass]="displayFieldCss('password')">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <svg _ngcontent-fva-c48="" class="svg-inline--fa fa-lock fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" style="
@@ -121,8 +31,10 @@
                     "></path></svg>
                     </div>
                   </div>
-                  <input type="password" class="form-control" formControlName="password" id="inlineFormInputGroupPassword2" placeholder="Password">
+                  <input type="password" class="form-control" formControlName="password" id="inlineFormInputGroupPassword" placeholder="Password">
                 </div>
+                <app-field-error-display class="error" [displayError]="isFieldValid('password')" errorMsg="Required*">
+                </app-field-error-display>
                 <!-- <div class="checkbox remember-me mb-3">
                   <label>
                     <input type="checkbox" value="remember-me"> Remember me
@@ -130,16 +42,16 @@
                 </div> -->
                 <div class="checkbox forgot-password mb-3">
                   <label>
-                    <p>Forgot password?</p>
+                    <p (click)="showSignIn=false; showForgotPassword=true">Forgot password?</p>
                   </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <hr id="hrline1">
                 <p id="orLogin">or login with</p>
                 <hr id="hrline2">
-                <img id="facebook1" src="https://image.flaticon.com/icons/svg/174/174848.svg">
-                <img id="google1" src="https://image.flaticon.com/icons/svg/281/281764.svg">
-                <img id="twitter1" src="https://img.icons8.com/color/48/000000/twitter.png">
+                <img id="facebook1" (click)="loginWithThirdPartySites('Facebook')" src="https://image.flaticon.com/icons/svg/174/174848.svg">
+                <img id="google1" (click)="loginWithThirdPartySites('Gmail')" src="https://image.flaticon.com/icons/svg/281/281764.svg">
+                <img id="twitter1" (click)="loginWithThirdPartySites('Twitter')" src="https://img.icons8.com/color/48/000000/twitter.png">
               </form>
             </div>
             <div class="card-footer">
@@ -148,6 +60,58 @@
                    <span>Don't have an account?</span><p (click)="registerUser()">Register now</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="showForgotPassword" class="row login" style="background-image: url('assets/data/bg.png');">
+  <div class="container login-container">
+    <div class="row">
+      <div class="w-50 mx-auto">
+        <div class="card-deck mb-3 text-center sign-in-block">
+          <div class="card mb-4 shadow-sm">
+            <div class="reset-lock">
+              <svg _ngcontent-vwu-c49="" class="svg-inline--fa fa-lock fa-w-14 fa-5x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" style="
+              fill: #000066;"></path></svg>
+            </div>
+            <div class="card-body resetCard">
+              <h4 class="my-0 font-weight-normal reset">Reset Password</h4>
+              <p>Enter your registered email and we will send you alink to reset the password.</p>
+              <form [formGroup]="forgotPasswordForm" ngNativeValidate (ngSubmit)="restPassword()">
+                <label class="sr-only" for="formReferenceEmailField">Enter Your Email</label>
+                <div class="input-group mb-2 mr-sm-2">
+                  <div class="input-group-prepend">
+                  </div>
+                  <input type="email" formControlName="referenceEmail" class="form-control" id="formReferenceEmailField" placeholder="Enter email">
+                </div>
+                <div class="p-t-20">
+                  <button type="button" class="btn btn-outline-primary btn-block btn-cancel" (click)="showSignIn=true; showForgotPassword=false;forgotPasswordForm.reset();">Cancel</button>
+                  <button class="btn btn-lg btn-primary btn-block btn-blue" type="submit" Id="resetClick" [disabled]="!forgotPasswordForm.valid">Reset</button>
+                </div>
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000" style="position: absolute; top: 1rem; right: 1rem;">
+                  <div class="toast-header">
+                
+                    <strong class="mr-auto text-success">Reset Success</strong>
+                    <!-- <small>11 mins ago</small> in future addtiming lapsed -->
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="toast-body">
+                    Reset password link sent successfuly.
+                 </div>
+                 <div class="toast-footer">
+                    <small>Link not received? <p class="try-again" (click)="forgotPasswordForm.reset();"><strong class="text-primary">Try again</strong></p> </small>
+                 </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
