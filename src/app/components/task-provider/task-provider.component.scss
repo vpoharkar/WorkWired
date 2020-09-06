@@ -1,0 +1,20 @@
+.headerNav {
+    background-image: linear-gradient(to right, #5388d8, #4a82dc, #417de0, #3a76e3, #3470e6);
+    .navbar-brand {
+        color: white;
+    }
+}
+.taskTable {
+    .table {
+        border-collapse: separate;
+        border-spacing:0 20px;
+        tbody {
+            .tRow {
+                .tCol {
+                    background: #EBEDF4;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

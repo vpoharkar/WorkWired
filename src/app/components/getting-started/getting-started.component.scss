@@ -11,6 +11,7 @@
                 background-color: #000066;
                 color: white;
                 font-weight: bold;
+                padding: 0.75rem 0.5rem;
             }
         }
     }
@@ -24,10 +25,15 @@
                 background-color: #000066;
                 color: white;
                 font-weight: bold;
+                padding: 0.75rem 0.5rem;
             }
         }
     }
+    .tab-content {
+        padding: 0;
+    }
 }
+
 
 @media only screen and (max-width: 992px) {
     .ww-row {

@@ -60,6 +60,7 @@
                             p {
                                 cursor: pointer;
                                 color: $link-bue-hue;
+                                margin-bottom: 0;
                             }
                         }
                         #orLogin {
@@ -124,7 +125,18 @@
                         }
                     }
                     .toast {
+                        .toast-header {
+                            color: white;
+                            background-color: #93c54b;
+                            font-size: 18px;
+                        }
+                        .toast-body {
+                            color: white;
+                            background-color: #93c54b;
+                        }
                         .toast-footer {
+                            color: white;
+                            background-color: #93c54b;
                             text-align: left;
                             padding: 0 0.75rem 0.5rem 0.75rem;
                             small {

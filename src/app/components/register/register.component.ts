@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm);
     if (this.registerForm.valid) {
       console.log('form submitted');
-      this.route.navigate(['task-form']);
+      this.route.navigate(['getting-started']);
     } else {
       this.validateAllFormFields(this.registerForm);
     }

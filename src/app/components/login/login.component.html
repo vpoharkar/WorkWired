@@ -40,7 +40,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                   </label>
                 </div> -->
-                <div class="checkbox forgot-password mb-3">
+                <div class="checkbox forgot-password">
                   <label>
                     <p (click)="showSignIn=false; showForgotPassword=true">Forgot password?</p>
                   </label>
@@ -54,7 +54,7 @@
                 <img id="twitter1" (click)="loginWithThirdPartySites('Twitter')" src="https://img.icons8.com/color/48/000000/twitter.png">
               </form>
             </div>
-            <div class="card-footer">
+            <div class="card-footer mt-3">
               <div class="checkbox register">
                 <div>
                    <span>Don't have an account?</span><p (click)="registerUser()">Register now</p>
@@ -84,7 +84,7 @@
             <div class="card-body resetCard">
               <h4 class="my-0 font-weight-normal reset">Reset Password</h4>
               <p>Enter your registered email and we will send you alink to reset the password.</p>
-              <form [formGroup]="forgotPasswordForm" ngNativeValidate (ngSubmit)="restPassword()">
+              <form class="fp-form"[formGroup]="forgotPasswordForm" ngNativeValidate (ngSubmit)="restPassword()">
                 <label class="sr-only" for="formReferenceEmailField">Enter Your Email</label>
                 <div class="input-group mb-2 mr-sm-2">
                   <div class="input-group-prepend">
@@ -95,20 +95,20 @@
                   <button type="button" class="btn btn-outline-primary btn-block btn-cancel" (click)="showSignIn=true; showForgotPassword=false;forgotPasswordForm.reset();">Cancel</button>
                   <button class="btn btn-lg btn-primary btn-block btn-blue" type="submit" Id="resetClick" [disabled]="!forgotPasswordForm.valid">Reset</button>
                 </div>
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000" style="position: absolute; top: 1rem; right: 1rem;">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000" style="position: absolute; top: 1rem; right: 1rem;">
                   <div class="toast-header">
                 
-                    <strong class="mr-auto text-success">Reset Success</strong>
+                    <strong class="mr-auto">Reset Success</strong>
                     <!-- <small>11 mins ago</small> in future addtiming lapsed -->
                     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="toast-body">
-                    Reset password link sent successfuly.
+                    <strong>Reset password link sent successfuly.</strong>
                  </div>
                  <div class="toast-footer">
-                    <small>Link not received? <p class="try-again" (click)="forgotPasswordForm.reset();"><strong class="text-primary">Try again</strong></p> </small>
+                    <small><strong>Link not received?</strong> <p class="try-again" (click)="forgotPasswordForm.reset();"><strong class="text-primary">Try again</strong></p> </small>
                  </div>
                 </div>
               </form>

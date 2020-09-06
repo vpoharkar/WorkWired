@@ -1,78 +1,122 @@
  <app-nav-bar></app-nav-bar>
   <div class="row ww-row" id="body-row">
       <div id="sidebar-container" class="sidebar-expanded  d-md-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-          <!-- Bootstrap List Group -->
-          <ul class="list-group">
-              <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-dashboard fa-fw mr-3"></span> 
-                      <span class="menu-collapsed">Dashboard</span>
-                      <span class="fa fa-caret-down fa-fw mr-3"></span>
-                  </div>
-              </a>
-              <div id='submenu1' class="collapse sidebar-submenu">
-                  <a href="#" class="list-group-item list-group-item-action text-white">
-                      <span class="menu-collapsed">Charts</span>
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action text-white">
-                      <span class="menu-collapsed">Reports</span>
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action text-white">
-                      <span class="menu-collapsed">Tables</span>
-                  </a>
-              </div>
-              <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-user fa-fw mr-3"></span>
-                      <span class="menu-collapsed">Profile</span>
-                      <span class="fa fa-caret-down fa-fw mr-3"></span>
-                  </div>
-              </a>
-              <div id='submenu2' class="collapse sidebar-submenu">
-                  <a href="#" class="list-group-item list-group-item-action text-white">
-                      <span class="menu-collapsed">Settings</span>
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action text-white">
-                      <span class="menu-collapsed">Password</span>
-                  </a>
-              </div>            
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-tasks fa-fw mr-3"></span>
-                      <span class="menu-collapsed">Tasks</span>    
-                  </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-calendar fa-fw mr-3"></span>
-                      <span class="menu-collapsed">Calendar</span>
-                  </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-envelope-o fa-fw mr-3"></span>
-                      <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
-                  </div>
-              </a>
-              <!-- Separator without title -->
-              <!-- <li class="list-group-item sidebar-separator menu-collapsed"></li>             -->
-              <!-- /END Separator -->
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fa fa-question fa-fw mr-3"></span>
-                      <span class="menu-collapsed">Help</span>
-                  </div>
-              </a>
-              <a  data-toggle="sidebar-colapse" class="list-group-item list-group-item-action d-flex align-items-center">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                      <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                  </div>
-              </a>  
+
+        <ul class="nav nav-tabs list-group" role="tablist">
+            <li class="nav-item">
+                <a href="#viewDashboard" data-toggle="tab" aria-expanded="false" class="nav-link active list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-dashboard fa-fw mr-3"></span> 
+                        <span class="menu-collapsed">Dashboard</span>
+                        <span class="fa fa-caret-down fa-fw mr-3"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <div id='submenu1' class="collapse sidebar-submenu">
+                    <a href="#" class="list-group-item list-group-item-action text-white">
+                        <span class="menu-collapsed">Charts</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action text-white">
+                        <span class="menu-collapsed">Reports</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action text-white">
+                        <span class="menu-collapsed">Tables</span>
+                    </a>
+                </div>
+            </li>
+            <!-- <li class="nav-item">
+                <a href="#taskList" data-toggle="tab" class="nav-link list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-tasks fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Tasks</span>    
+                    </div>
+                </a>
+            </li> -->
+            <li class="nav-item">
+                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-user fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Profile</span>
+                        <span class="fa fa-caret-down fa-fw mr-3"></span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <div id='submenu2' class="collapse sidebar-submenu">
+                    <a href="#settings" data-toggle="tab" class="nav-link list-group-item list-group-item-action text-white">
+                        <span class="menu-collapsed">Settings</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action text-white">
+                        <span class="menu-collapsed">Password</span>
+                    </a>
+                </div> 
+            </li>
+            <li class="nav-item">
+                <a href="#taskList" data-toggle="tab" class="nav-link list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-tasks fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Tasks</span>    
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-calendar fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Calendar</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-envelope-o fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-question fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Help</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a  data-toggle="sidebar-colapse" class="list-group-item list-group-item-action d-flex align-items-center">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+                        <span id="collapse-text" class="menu-collapsed">Collapse</span>
+                    </div>
+                </a> 
+            </li>
           </ul>
+        
+        
+          
       </div>
       <!-- MAIN -->
-      <div class="col">
+      <div class="col tab-content">
+        <div class="tab-pane active" id="viewDashboard">
+            <h1>Comingsoon...</h1>
+        </div>
+        <div class="tab-pane fade" id="taskList">
+            <app-task-provider></app-task-provider>
+        </div>
+        
+        <div class="tab-pane fade" id="settings">
+            <h1>Settings comming soon...</h1>
+        </div>
+      </div>
+      <!-- <div class="col tab-content">
+          <div id="taskList" class="container tab-pane fade">
+              <app-task-provider></app-task-provider>
+          </div>
+          <div class="container tab-pane active" id="viewDashboard">
+              <h1>Comingsoon...</h1>
+          </div>
           
           <h1>
               WSR Application
@@ -86,5 +130,5 @@
                   <p><i>Coming soon.....</i></p>
               </div>
           </div>
-      </div>
+      </div> -->
   </div>

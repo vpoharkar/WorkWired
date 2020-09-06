@@ -66,7 +66,13 @@ export class LoginComponent implements OnInit {
     isFieldValid(field: string) {
       return !this.loginForm.get(field).valid && this.loginForm.get(field).touched;
     }
-  
+    
+    // forgotPasswordCSS(field) {
+    //   return {
+    //     'remove-margin': this.isFieldValid(field)
+    //   }
+    // }
+
     displayFieldCss(field: string) {
       return {
         'has-error': this.isFieldValid(field),
@@ -78,7 +84,7 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm);
       if (this.loginForm.valid) {
         console.log('form submitted');
-        this.route.navigate(['task-form']);
+        this.route.navigate(['getting-started']);
       } else {
         this.validateAllFormFields(this.loginForm);
       }
