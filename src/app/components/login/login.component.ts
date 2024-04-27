@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 declare var $: any;
 
 @Component({
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   //TODO :=> Automate both register and login forms with validations
 
-  loginForm: FormGroup;
-  forgotPasswordForm: FormGroup;
+  loginForm: UntypedFormGroup;
+  forgotPasswordForm: UntypedFormGroup;
   showForgotPassword: Boolean = false;
   showSignIn: Boolean = true;
 
@@ -47,14 +47,14 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private route: Router,
-        private fb: FormBuilder
+        private fb: UntypedFormBuilder
     ) {
-        this.loginForm = new FormGroup({
-          username: new FormControl('', [Validators.required]),
-          password: new FormControl('', [Validators.required]),
+        this.loginForm = new UntypedFormGroup({
+          username: new UntypedFormControl('', [Validators.required]),
+          password: new UntypedFormControl('', [Validators.required]),
         });
-        this.forgotPasswordForm = new FormGroup({
-          referenceEmail: new FormControl('', [Validators.required]),
+        this.forgotPasswordForm = new UntypedFormGroup({
+          referenceEmail: new UntypedFormControl('', [Validators.required]),
         });
     }
 
@@ -90,13 +90,13 @@ export class LoginComponent implements OnInit {
       }
     }
   
-    validateAllFormFields(formGroup: FormGroup) {
+    validateAllFormFields(formGroup: UntypedFormGroup) {
       Object.keys(formGroup.controls).forEach(field => {
         console.log(field);
         const control = formGroup.get(field);
-        if (control instanceof FormControl) {
+        if (control instanceof UntypedFormControl) {
           control.markAsTouched({ onlySelf: true });
-        } else if (control instanceof FormGroup) {
+        } else if (control instanceof UntypedFormGroup) {
           this.validateAllFormFields(control);
         }
       });
